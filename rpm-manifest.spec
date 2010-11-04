@@ -13,6 +13,7 @@ BuildArch:	noarch
 Requires:	rpm
 Requires:	coreutils
 Requires:	crontabs
+Requires:	gawk
 
 %description
 Generates a single hash value based on the 
