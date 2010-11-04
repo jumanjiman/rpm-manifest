@@ -1,6 +1,6 @@
 Name:		rpm-manifest
-Version:	0.1
-Release:	2%{?dist}
+Version:	0.2
+Release:	1%{?dist}
 Summary:	creates a hash of all RPMs on a system
 
 Group:		System Environment/Base
@@ -73,6 +73,9 @@ beyond the scope of this package.
 
 
 %changelog
+* Thu Nov 04 2010 Paul Morgan <jumanjiman@gmail.com> 0.2-1
+- add subpackage rpm-manifest-etckeeper (jumanjiman@gmail.com)
+
 * Thu Nov 04 2010 Paul Morgan <jumanjiman@gmail.com> 0.1-2
 - cleanup spec (jumanjiman@gmail.com)
 
