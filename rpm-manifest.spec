@@ -52,4 +52,7 @@ the manifest can:
 
 
 %changelog
+* Thu Nov 04 2010 Paul Morgan <jumanjiman@gmail.com> 0.1-1
+- new package built with tito
+
 
