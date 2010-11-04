@@ -74,6 +74,9 @@ beyond the scope of this package.
 
 
 %changelog
+* Thu Nov 04 2010 Paul Morgan <jumanjiman@gmail.com> 0.2-2
+- requires gawk (jumanjiman@gmail.com)
+
 * Thu Nov 04 2010 Paul Morgan <jumanjiman@gmail.com> 0.2-1
 - add subpackage rpm-manifest-etckeeper (jumanjiman@gmail.com)
 
