@@ -6,7 +6,7 @@ Summary:	creates a hash of all RPMs on a system
 Group:		System Environment/Base
 License:	GPLv3
 URL:		http://github.com/jumanjiman/rpm-manifest
-Source0:	
+Source0:	%{name}-%{version}.tar.gz
 BuildRoot:	%(mktemp -ud %{_tmppath}/%{name}-%{version}-%{release}-XXXXXX)
 BuildArch:  noarch
 
