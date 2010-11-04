@@ -1,6 +1,6 @@
 Name:		rpm-manifest
 Version:	0.1
-Release:	1%{?dist}
+Release:	2%{?dist}
 Summary:	creates a hash of all RPMs on a system
 
 Group:		System Environment/Base
