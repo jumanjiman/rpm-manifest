@@ -26,6 +26,21 @@ the manifest can:
 * detect unintended changes
 * validate intended changes
 
+
+%package etckeeper
+Summary:	Causes etckeeper to update manifest after yum transaction
+Requires:	%{name} = %{version}-%{release}
+Requires:	etckeeper
+
+%description etckeeper
+After each yum transaction and before committing changes
+to the local git repo, etckeeper updates the local
+rpm manifest. This ensures the local copy of the manifest
+reflects the current combination of RPMs.
+
+NOTE: uploading the manifest to a central repository is
+beyond the scope of this package.
+
 %prep
 %setup -q
 
@@ -38,6 +53,8 @@ the manifest can:
 %{__mkdir_p} %{buildroot}%{_sysconfdir}/%{name}
 %{__mkdir_p} %{buildroot}%{_sysconfdir}/cron.daily
 %{__install} -pm 755 src/rpm-manifest %{buildroot}%{_sysconfdir}/cron.daily
+%{__mkdir_p} %{buildroot}%{_sysconfdir}/etckeeper/post-install.d
+%{__install} -pm 755 src/10rpm-manifest %{buildroot}%{_sysconfdir}/etckeeper/post-install.d
 
 
 %clean
@@ -50,6 +67,9 @@ the manifest can:
 %dir %{_sysconfdir}/%{name}
 %{_sysconfdir}/cron.daily/rpm-manifest
 
+%files etckeeper
+%defattr(-,root,root,-)
+%{_sysconfdir}/etckeeper/post-install.d/10rpm-manifest
 
 
 %changelog
