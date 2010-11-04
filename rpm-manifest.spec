@@ -8,10 +8,10 @@ License:	GPLv3
 URL:		http://github.com/jumanjiman/rpm-manifest
 Source0:	%{name}-%{version}.tar.gz
 BuildRoot:	%(mktemp -ud %{_tmppath}/%{name}-%{version}-%{release}-XXXXXX)
-BuildArch:  noarch
+BuildArch:	noarch
 
-Requires:   rpm
-Requires:   coreutils
+Requires:	rpm
+Requires:	coreutils
 Requires:	crontabs
 
 %description
@@ -20,10 +20,11 @@ name, epoch, version, and release of all every
 RPM installed on a system. 
 
 When used in conjunction with ITIL practices,
+and with respect to the set of RPMs installed,
 the manifest can:
 
-* detect unintended change in packages
-* validate intended change in packages
+* detect unintended changes
+* validate intended changes
 
 %prep
 %setup -q
