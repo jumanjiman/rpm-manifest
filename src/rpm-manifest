@@ -1,0 +1,18 @@
+#!/bin/sh
+
+rpms="/etc/rpm-manifest/rpms"
+manifest="/etc/rpm-manifest/manifest"
+
+if touch $rpms; then
+  rpm -qa --qf "%|epoch?{%{epoch}}:{0}|:%{name}-%{version}-%{release}.%{arch}\n" | sort > $rpms
+else
+  echo "Error: $rpms not writable" >&2
+  exit 1
+fi
+
+if [ -r $rpms ]; then
+  md5sum < $rpms | awk '{print $1}' > $manifest
+else
+  echo "Error: $rpms not readable" >&2
+  exit 1
+fi
