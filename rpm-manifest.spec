@@ -30,6 +30,7 @@ the manifest can:
 
 %package etckeeper
 Summary:	Causes etckeeper to update manifest after yum transaction
+Group:		System Environment/Base
 Requires:	%{name} = %{version}-%{release}
 Requires:	etckeeper
 
