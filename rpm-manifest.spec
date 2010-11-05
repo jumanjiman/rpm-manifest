@@ -75,6 +75,9 @@ beyond the scope of this package.
 
 
 %changelog
+* Fri Nov 05 2010 Paul Morgan <jumanjiman@gmail.com> 0.2-3
+- Ensure package builds on RHEL 5 (jumanjiman@gmail.com)
+
 * Thu Nov 04 2010 Paul Morgan <jumanjiman@gmail.com> 0.2-2
 - requires gawk (jumanjiman@gmail.com)
 
