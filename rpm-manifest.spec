@@ -1,6 +1,6 @@
 Name:		rpm-manifest
-Version:	0.2
-Release:	3%{?dist}
+Version:	0.3
+Release:	1%{?dist}
 Summary:	creates a hash of all RPMs on a system
 
 Group:		System Environment/Base
@@ -76,6 +76,9 @@ beyond the scope of this package.
 
 
 %changelog
+* Thu Nov 11 2010 Paul Morgan <jumanjiman@gmail.com> 0.3-1
+- add README in asciidoc format (jumanjiman@gmail.com)
+
 * Fri Nov 05 2010 Paul Morgan <jumanjiman@gmail.com> 0.2-3
 - Ensure package builds on RHEL 5 (jumanjiman@gmail.com)
 
