@@ -2,6 +2,7 @@
 
 rpms="/etc/rpm-manifest/rpms"
 manifest="/etc/rpm-manifest/manifest"
+leaves="/etc/rpm-manifest/leaves"
 
 if touch $rpms; then
   rpm -qa --qf "%|epoch?{%{epoch}}:{0}|:%{name}-%{version}-%{release}.%{arch}\n" | sort > $rpms
@@ -14,5 +15,12 @@ if [ -r $rpms ]; then
   md5sum < $rpms | awk '{print $1}' > $manifest
 else
   echo "Error: $rpms not readable" >&2
+  exit 1
+fi
+
+if touch $leaves; then
+  repoquery --leaves | sort > $leaves
+else
+  echo "Error: $leaves not writable" >&2
   exit 1
 fi

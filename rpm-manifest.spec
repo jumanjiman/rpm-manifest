@@ -14,6 +14,7 @@ Requires:	rpm
 Requires:	coreutils
 Requires:	crontabs
 Requires:	gawk
+Requires:	yum-utils
 
 %description
 Generates a single hash value based on the 
@@ -73,6 +74,10 @@ beyond the scope of this package.
 %files etckeeper
 %defattr(-,root,root,-)
 %{_sysconfdir}/etckeeper/post-install.d/10rpm-manifest
+
+
+%post
+/sbin/service crond restart || :
 
 
 %changelog
