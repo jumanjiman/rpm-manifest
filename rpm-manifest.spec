@@ -1,5 +1,5 @@
 Name:		rpm-manifest
-Version:	0.3
+Version:	0.4
 Release:	1%{?dist}
 Summary:	creates a hash of all RPMs on a system
 
@@ -81,6 +81,9 @@ beyond the scope of this package.
 
 
 %changelog
+* Wed Mar 09 2011 Paul Morgan <jumanjiman@gmail.com> 0.4-1
+- monitor rpms that are not explicitly required
+
 * Thu Nov 11 2010 Paul Morgan <jumanjiman@gmail.com> 0.3-1
 - add README in asciidoc format (jumanjiman@gmail.com)
 
