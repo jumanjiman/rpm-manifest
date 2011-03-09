@@ -19,7 +19,7 @@ else
 fi
 
 if touch $leaves; then
-  repoquery --leaves | sort > $leaves
+  package-cleanup --leaves | sort > $leaves
 else
   echo "Error: $leaves not writable" >&2
   exit 1
