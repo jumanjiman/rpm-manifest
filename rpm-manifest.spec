@@ -15,6 +15,7 @@ Requires:	coreutils
 Requires:	crontabs
 Requires:	gawk
 Requires:	yum-utils
+Requires:	mlocate
 
 %description
 Generates a single hash value based on the 

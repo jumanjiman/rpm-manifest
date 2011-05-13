@@ -7,6 +7,12 @@ base_dir="/etc/rpm-manifest"
 rpms="$base_dir/rpms"
 manifest="$base_dir/manifest"
 leaves="$base_dir/leaves"
+orphans="$base_dir/orphans"
+
+# temporary files
+temp_dir="/var/tmp"
+locate_files="$(mktemp $temp_dir/rpm-manifest-locate-XXXXXXX)"
+rpm_files="$(mktemp $temp_dir/rpm-manifest-rpm-XXXXXXX)"
 
 if touch $rpms; then
   rpm -qa --qf "%|epoch?{%{epoch}}:{0}|:%{name}-%{version}-%{release}.%{arch}\n" | sort > $rpms
@@ -26,5 +32,15 @@ if touch $leaves; then
   package-cleanup --leaves | sort > $leaves
 else
   echo "Error: $leaves not writable" >&2
+  exit 1
+fi
+
+if touch $orphans; then
+  locate -r '.' | grep -v '^/home' | grep -v '^/var' | grep -v '^/boot' | sort > $locate_files
+  rpm -qla | sort > $rpm_files
+  comm -23 $locate_files $file2 > $orphans
+  rm -f $locate_files $rpm_files
+else
+  echo "Error: $orphans not writable" >&2
   exit 1
 fi
