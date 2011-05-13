@@ -1,8 +1,12 @@
 #!/bin/sh
 
-rpms="/etc/rpm-manifest/rpms"
-manifest="/etc/rpm-manifest/manifest"
-leaves="/etc/rpm-manifest/leaves"
+# persistent storage
+base_dir="/etc/rpm-manifest"
+
+# file locations
+rpms="$base_dir/rpms"
+manifest="$base_dir/manifest"
+leaves="$base_dir/leaves"
 
 if touch $rpms; then
   rpm -qa --qf "%|epoch?{%{epoch}}:{0}|:%{name}-%{version}-%{release}.%{arch}\n" | sort > $rpms
