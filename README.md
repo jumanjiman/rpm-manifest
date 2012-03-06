@@ -28,8 +28,7 @@ Given a set of hosts, has anybody changed the build
 by updating, installing, or removing RPMs?
 
 The following output shows the manifests for each
-host in the set, clearly identifying the hosts
-that have been modified.
+host in a set of presumably identical hosts.
 
 ```
 pc-pp01a : ad52c23663e76c4eb7cee27c0d3613ab
@@ -50,4 +49,16 @@ pc-pp08a : baa1e43c95dd58cd367ab289fe042d67
 pc-pp08b : baa1e43c95dd58cd367ab289fe042d67
 pc-pp09a : baa1e43c95dd58cd367ab289fe042d67
 pc-pp09b : baa1e43c95dd58cd367ab289fe042d67
+```
+
+If you pipe the above output to `awk '{print $NF} | sort | uniq -c`,
+it becomes clear that somebody has modified some of the hosts:
+
+```
+      1 5a67d2db48b5396968bac87c631bbb98
+      1 6422646db863598ea705a1e5806f5b08
+      1 89a1f692b9659a5928413c56213b0c95
+      1 ad52c23663e76c4eb7cee27c0d3613ab
+     13 baa1e43c95dd58cd367ab289fe042d67
+      1 f65b8d62011ec3ab59ac816a088e7c0a
 ```
