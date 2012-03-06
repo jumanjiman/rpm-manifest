@@ -68,7 +68,7 @@ beyond the scope of this package.
 %files
 %defattr(-,root,root,-)
 %doc COPYING.GPLv3
-%doc README.asciidoc
+%doc README.md
 %dir %{_sysconfdir}/%{name}
 %{_sysconfdir}/cron.daily/rpm-manifest
 

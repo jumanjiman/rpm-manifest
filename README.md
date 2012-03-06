@@ -1,5 +1,4 @@
-A simple approach for comparing host builds
-===========================================
+# A simple approach for comparing host builds #
 
 This package uses a simple RPM query to generate a hash, or
 _rpm-manifest_, of the set of RPMs installed on a given host. The
@@ -15,17 +14,16 @@ manifest is deterministic, so:
 IMPORTANT: An rpm-manifest is _not_ a tool for comparing
 configuration files or detecting intrusions.
 
-Sample Use Cases
-----------------
+## Sample Use Cases ##
 
-Kickstart verification
-~~~~~~~~~~~~~~~~~~~~~~
+### Kickstart verification ###
+
 If you compute the rpm-manifest for a given kickstart,
 you can compare the actual manifest during `%post` to
 the expected manifest as a *go-no-go* check of the build.
 
-Change detection
-~~~~~~~~~~~~~~~~
+### Change detection ###
+
 Given a set of hosts, has anybody changed the build
 by updating, installing, or removing RPMs?
 
@@ -33,7 +31,7 @@ The following output shows the manifests for each
 host in the set, clearly identifying the hosts
 that have been modified.
 
-----
+```
 pc-pp01a : ad52c23663e76c4eb7cee27c0d3613ab
 pc-pp01b : f65b8d62011ec3ab59ac816a088e7c0a
 pc-pp02a : 6422646db863598ea705a1e5806f5b08
@@ -52,4 +50,4 @@ pc-pp08a : baa1e43c95dd58cd367ab289fe042d67
 pc-pp08b : baa1e43c95dd58cd367ab289fe042d67
 pc-pp09a : baa1e43c95dd58cd367ab289fe042d67
 pc-pp09b : baa1e43c95dd58cd367ab289fe042d67
-----
+```
